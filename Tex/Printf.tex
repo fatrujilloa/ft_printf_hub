@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+
+\usepackage[margin=1in]{geometry}  % set the margins to 1in on all sides
+\usepackage{graphicx}              % to include figures
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{mathrsfs}
+\usepackage{changepage}  
+\usepackage{mathtools}
+\usepackage{mathabx}
+\usepackage{verbatim} 
+
+\begin{document}
+\section{Printf}
+The $\%$ symbol is followed by either 
+\begin{itemize}
+%\item \textit{Decimal number and $\$$ symbol:} In this case the arguments will be positional. 
+%\[ \%2\$\]
+\item \textit{$\%$ symbol.} It prints a $\%$.
+\item \textit{Flags.} One or several flags $\#0-+$' '.
+\[ \%2\$0-\]
+\item \textit{Decimal number:} Specifies a minimum \textbf{\textit{field width}} (minimum number of characters to be printed). If the converted value has fewer characters than the field width, it will be padded with spaces on the left (or right, if the left-adjustment flag has been given) to fill out the field width.
+\[ \%2\$0-5\]
+\item \textit{Point and decimal number:} Specifies a \textbf{\textit{precision}}. This means the minimum number of digits to appear for diouxX conversions,  the number of digits to appear after the decimal-point for a, A, e, E, f,  and F conversions, the maximum number of significant digits for g and G conversions, or the maximum number of characters to be printed from a string for s conversions.
+\[ \%2\$0-5.8\]
+\item \textit{A length modifier h, hh, l, ll, L:} Specifies the size of the argument and depends on the particular conversion. See man. 
+\[ \%2\$0-5.8ll\]
+\item \textit{Conversion csp, diouxX,  f:} The conversion to be applied
+\[ \%2\$0-5.8llX\]
+\end{itemize}
+
+\subsection{Conversions}
+\begin{itemize}
+\item \textit{c:} Convert \textit{int} to unsigned {char}.
+\item \textit{s:} Characters from the array are written up to (but not
+             including) a terminating NUL character; if a precision is specified, no more
+             than the number specified are written.  If a precision is given, no null
+             character need be present; if the precision is not specified, or is greater
+             than the size of the array, the array must contain a terminating NUL charater.
+\item \textit{p:} Address in Hexa. A pointer stores an address as a number. The type of this number depends on the operating system. For 32 bits it is usually an unsigned int (4 bytes) while in 64 bits is a long unsigned int (8 bytes).  
+\item \textit{ diouxX :} The int (or appropriate variant) argument is converted to signed decimal (d and i), unsigned octal (o), unsigned decimal (u), or unsigned hexadecimal (x
+             and X) notation.  The letters ``abcdef'' are used for x conversions; the let-
+             ters ``ABCDEF'' are used for X conversions.  The precision, if any, gives the
+             minimum number of digits that must appear; if the converted value requires
+             fewer digits, it is padded on the left with zeros.
+            
+\item \textit{f:} The double argument is rounded and converted to decimal notation in the style
+             [-]ddd.ddd, where the number of digits after the decimal-point character is
+             equal to the precision specification.  If the precision is missing, it is
+             taken as 6; if the precision is explicitly zero, no decimal-point character
+             appears.  If a decimal point appears, at least one digit appears before it.
+\end{itemize}
+
+\subsection{Lengh modifiers}
+
+\begin{itemize}
+\item
+
+\end{itemize}
+
+\subsection{Flags}
+\begin{itemize}
+\item $\#$: Change precision.
+\item 
+\end{itemize}
+
+\subsection{To check}
+\begin{itemize}
+\item Positional and non positional arguments
+\item Integer limits
+\item Flags with some conversions have undefined behaviour (for example + and u)
+\item Flag - overrides 0 but gives a warning and thus and error if -Werror  is used to compile
+\item Maximum field width
+\end{itemize}
+\end{document}
