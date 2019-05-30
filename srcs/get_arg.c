@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:00:55 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 17:28:34 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/05/30 10:06:23 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int		arg_prec(char **f, t_arg *arg)
 	}
 	(*f)++;
 	prec = 0;
-	arg->flag_zero = 0;
 	while (ft_isdigit(**f))
 	{
 		prec = 10 * prec + **f - 48;
@@ -111,6 +110,9 @@ char	arg_conv(char **f, t_arg *arg)
 		return (0);
 	arg->conv = c;
 	if (arg->prec == -1)
-		arg->prec = (c == 'f') ? 6 : 0;
+		arg->prec = (c == 'f' && !arg->flag_hash) ? 6 : 0;
+	if (arg->prec != 0 && (c == 'd' || c == 'i' || c == 'o' ||
+							c == 'u' || c == 'x' || c == 'X'))
+		arg->flag_zero = 0;
 	return (1);
 }

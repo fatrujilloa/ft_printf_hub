@@ -38,7 +38,7 @@ int main(int argc, char **argv)
            k,(unsigned short)k, (unsigned long long)k, (unsigned long)k);
 	printf("\nTest char %-30c", 'a');
 	printf("\nTest hexa %#10.5x", 245);
-	printf("\nTest octal %#04o", 245);
+	printf("\nTest octal %#04o, %llo", 245, 18446744073709551615);
 	printf("\nTest string %10sEND", str);
 	//printf("\nPrint the void %p.\n", ptr);
 	//printf("\n In normal %0+d, in octal %llo\n", l, k);
@@ -48,6 +48,8 @@ int main(int argc, char **argv)
 	//printf("%8.7d", 25);
 	f = 12443243.412432;
 	k = (long long)f;
-	printf("\nDouble %0100.111Lf, %Lf, %+f, %.2f, %lld", f, f - k, 0.012, 0.11101, k);
+	printf("\nDouble %#.Lf, %010.11Lf, %Lf, %+f, %.2f, %lld", f, f, f - k, 0.012, 0.11101, k);
+	printf("\nSize of void* %lu, of ull %lu, of int %lu, of ul %lu", sizeof(void*), sizeof(unsigned long long), sizeof(int), sizeof(unsigned long));
+	printf("\nPrint the void %45p", ptr);
 	return (0);
 }

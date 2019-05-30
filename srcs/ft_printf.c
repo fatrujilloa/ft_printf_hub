@@ -6,7 +6,7 @@
 /*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:22:11 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 18:43:00 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/05/30 21:42:42 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ int		ft_printf(const char *restrict format, ...)
 
 	i = 0;
 	j = 0;
-	if (!(copy = (char*)malloc(ft_strlen(format) + 1)) ||
-		!(arg = (t_arg*)malloc((nb_arg(format)) * sizeof(t_arg))))
+	if (!(copy = (char*)malloc(ft_strlen(format) + 2)) ||
+		!(arg = (t_arg*)malloc((nb_arg(format) + 1) * sizeof(t_arg))))
 		return (-1);
 	va_start(ap, format);
 	while (*format)

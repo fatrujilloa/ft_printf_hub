@@ -6,7 +6,7 @@
 /*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:13:18 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 15:14:30 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/05/30 21:42:44 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_printarg_o(char **format_ptr, t_arg arg, va_list *ap)
 		write(1, "0", 1);
 	arg.prec > len ? prt_prec(arg.prec - len) : 0;
 	ft_putstr(str);
+	free(str);
 	arg.flag_minus ? prt_width(sign, len, arg) : 0;
 }
 
@@ -61,6 +62,7 @@ void	ft_printarg_u(char **format_ptr, t_arg arg, va_list *ap)
 	arg.flag_minus ? 0 : prt_width(0, len, arg);
 	arg.prec > len ? prt_prec(arg.prec - len) : 0;
 	ft_putstr(str);
+	free(str);
 	arg.flag_minus ? prt_width(0, len, arg) : 0;
 }
 
@@ -86,6 +88,7 @@ void	ft_printarg_x(char **format_ptr, t_arg arg, va_list *ap)
 		write(1, "0x", 2);
 	arg.prec > len ? prt_prec(arg.prec - len) : 0;
 	ft_putstr(str);
+	free(str);
 	arg.flag_minus ? prt_width(sign, len, arg) : 0;
 }
 
@@ -111,5 +114,6 @@ void	ft_printarg_big_x(char **format_ptr, t_arg arg, va_list *ap)
 		write(1, "0X", 2);
 	arg.prec > len ? prt_prec(arg.prec - len) : 0;
 	ft_putstr(str);
+	free(str);
 	arg.flag_minus ? prt_width(sign, len, arg) : 0;
 }

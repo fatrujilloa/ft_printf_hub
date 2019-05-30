@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   aux_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:05:14 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 18:55:59 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/05/30 10:13:57 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../LibftHub/libft.h"
 #include "printf.h"
 
-void	prt_width(int sign, int len, t_arg arg)
+void	prt_width(int sign, size_t len, t_arg arg)
 {
 	ssize_t	n;
 	char	c;

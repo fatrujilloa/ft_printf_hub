@@ -17,9 +17,9 @@ int		main()
 	ft_printf("\nFull test for hexa %00016.18x %#x %hhx %hx %llx %lx", k, k, k, k, k, k);
 	ft_printf("\nFull test for HEXA %00025.18X %#X %#hhX %hX %llX %lX", k, k, k, k, k, k);
 	ft_printf("\nFull test for unsigned %00025.18u %u %hhu %hu %llu %lu", k, k, k, k, k, k);
-	ft_printf("\nString test %010.2s", "String");
+	ft_printf("\nString test %-10.2s", "String");
 	ft_printf("\nPrint the void %p.", ptr);
-	ft_printf("\nFull test for double %0100.35fEND", 12.21);
+	ft_printf("\nFull test for double %0100.35fEND, %#-23fEND", 12.21, 342.213);
 	//printf("\nPrint the void %p.", ptr);
 	return (0);
 }

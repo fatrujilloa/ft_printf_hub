@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:11:26 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 17:16:45 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/05/30 21:41:06 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,14 @@ void	ft_printarg_c(char **format_ptr, t_arg arg, va_list *ap)
 
 void	ft_printarg_s(char **format_ptr, t_arg arg, va_list *ap)
 {
-	arg.flag_minus ? 0 : prt_width(0, 1, arg);
-	ft_putstr(va_arg(*ap, char*));
-	arg.flag_minus ? prt_width(0, 1, arg) : 0;
+	char 	*str;
+	size_t	len;
+
+	str = va_arg(*ap, char*);
+	len = ft_min(ft_strlen(str), arg.prec);
+	arg.flag_minus ? 0 : prt_width(0, len, arg);
+	ft_putnstr(str, len);
+	arg.flag_minus ? prt_width(0, len, arg) : 0;
 }
 
 void	ft_printarg_p(char **format_ptr, t_arg arg, va_list *ap)
@@ -40,15 +45,19 @@ void	ft_printarg_p(char **format_ptr, t_arg arg, va_list *ap)
 	unsigned long long	nb;
 	int					len;
 	char				*str;
+	int					sign;
 
-	nb = va_arg(*ap, unsigned long long);
-	write(1, "0x", 2);
+	nb = va_arg(*ap, unsigned long);
 	str = ft_strlower(ft_itoa_base(nb, 16));
 	len = ft_strlen(str);
-	arg.flag_minus ? 0 : prt_width(0, len, arg);
+	sign = 2;
+	arg.flag_minus ? 0 : prt_width(sign, len, arg);
+	if (sign)
+		write(1, "0x", 2);
 	arg.prec > len ? prt_prec(arg.prec - len) : 0;
 	ft_putstr(str);
-	arg.flag_minus ? prt_width(0, len, arg) : 0;
+	free(str);
+	arg.flag_minus ? prt_width(sign, len, arg) : 0;
 }
 
 void	ft_printarg_d(char **format_ptr, t_arg arg, va_list *ap)

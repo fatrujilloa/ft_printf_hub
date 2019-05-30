@@ -56,7 +56,7 @@ void			reset_arg(t_arg *arg);
 /*
 ** Aux print functions
 */
-void			prt_width(int sign, int len, t_arg arg);
+void			prt_width(int sign, size_t len, t_arg arg);
 void    		prt_prec(ssize_t n);
 void			prt_sign(long long nb, t_arg arg);
 void			prt_decimal(long double nb, ssize_t prec);
