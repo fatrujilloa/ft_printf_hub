@@ -37,9 +37,9 @@ int main(int argc, char **argv)
     printf("\nFull test for unsigned %00025.18u %u %hhu %hu %llu %lu", (int)k, (int)k, (unsigned char)\
            k,(unsigned short)k, (unsigned long long)k, (unsigned long)k);
 	printf("\nTest char %-30c", 'a');
-	printf("\nTest hexa %#10.5x", 245);
+	printf("\nTest hexa '%#6.0x'", 0);
 	printf("\nTest octal %#04o, %llo", 245, 18446744073709551615);
-	printf("\nTest string %10sEND", str);
+	printf("\nTest string %10.1sEND", str);
 	//printf("\nPrint the void %p.\n", ptr);
 	//printf("\n In normal %0+d, in octal %llo\n", l, k);
 	//printf("In unsigned decimal %u, mine %ld  \n", -10, -10 + 4294967295);
@@ -50,6 +50,11 @@ int main(int argc, char **argv)
 	k = (long long)f;
 	printf("\nDouble %#.Lf, %010.11Lf, %Lf, %+f, %.2f, %lld", f, f, f - k, 0.012, 0.11101, k);
 	printf("\nSize of void* %lu, of ull %lu, of int %lu, of ul %lu", sizeof(void*), sizeof(unsigned long long), sizeof(int), sizeof(unsigned long));
-	printf("\nPrint the void %45p", ptr);
+	printf("\nPrint the void %15p", ptr);
+	printf("\nTest int %5.0d", 0);
+	printf("\nTest ud '%5.0u'", 0);
+	printf("\n Test %d", printf("%"));
+	printf("\nPointer test '%p', '%.0p'", NULL, NULL);
+	printf("\nPointer test '%.0x'", 0);
 	return (0);
 }
