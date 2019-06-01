@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/18 17:12:34 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 13:55:40 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 23:47:56 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char			*ft_itoa_base(unsigned long long value, int base);
 */
 int				ft_min_int(int a, int b);
 int				ft_max_int(int a, int b);
-size_t			ft_min(size_t a, size_t b);
+ssize_t			ft_min(ssize_t a, ssize_t b);
 ssize_t			ft_max(ssize_t a, ssize_t b);
 size_t			ft_memlap_fwd(void *s1, void *s2);
 size_t			ft_memnlap_fwd(const void *s1, const void *s2, size_t n);

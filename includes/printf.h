@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   printf.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/01 13:56:32 by ftrujill          #+#    #+#             */
+/*   Updated: 2019/06/01 23:47:53 by ftrujill         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRINTF_H
 # define PRINTF_H
 # include <stdarg.h>
+# include <string.h>
 
-typedef struct		s_arg
+typedef struct	s_arg
 {
 	char	flag_hash;
 	char	flag_zero;
@@ -13,14 +26,18 @@ typedef struct		s_arg
 	ssize_t	prec;
 	char	len_mod[3];
 	char	conv;
-}					t_arg;
+}				t_arg;
 
-typedef struct		s_conv
+typedef struct	s_conv
 {
 	char	conv;
 	int		(*f)(t_arg arg, va_list *ap);
-}					t_conv;
+}				t_conv;
 
+/*
+** Printf
+*/
+int		ft_printf(const char *format, ...);
 /*
 ** Print functions
 */
@@ -41,24 +58,22 @@ int				ft_printarg_pcnt(t_arg arg, va_list *ap);
 int				arg_flag(const char *restrict *f, t_arg *arg);
 int				arg_width(const char *restrict *f, t_arg *arg);
 int				arg_prec(const char *restrict *f, t_arg *arg);
-int				arg_len_mod(const char *restrict *f, t_arg* arg);
+int				arg_len_mod(const char *restrict *f, t_arg *arg);
 char			arg_conv(const char *restrict *f, t_arg *arg);
 /*
 ** Aux functions
 */
-void        	ft_llputnbr(long long nb);
-int		    	nb_len(long long nb);
-int         	unsigned_nb_len(unsigned long long nb);
+void			ft_llputnbr(long long nb);
+int				nb_len(long long nb);
+int				unsigned_nb_len(unsigned long long nb);
 void			reset_arg(t_arg *arg);
-int				error(t_arg *arg, char* copy);
+int				error(t_arg *arg, char *copy);
 /*
 ** Aux print functions
 */
 void			prt_width(int sign, size_t len, t_arg arg);
-void    		prt_prec(ssize_t n);
+void			prt_prec(ssize_t n);
 void			prt_sign(long long nb, t_arg arg);
-void			prt_decimal(long double nb, ssize_t prec);
 void			prt_sign_base(int sign);
-
 
 #endif

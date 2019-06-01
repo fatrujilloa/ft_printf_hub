@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conversions_1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:11:26 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/31 13:00:03 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 16:22:42 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,18 @@ int		ft_printarg_c(t_arg arg, va_list *ap)
 
 int		ft_printarg_s(t_arg arg, va_list *ap)
 {
-	char 	*str;
+	char	*str;
 	size_t	len;
 
 	str = va_arg(*ap, char*);
-	if (!str)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	len = arg.prec != -1 ? ft_min(ft_strlen(str), arg.prec)
+	if (str)
+		len = arg.prec != -1 ? ft_min(ft_strlen(str), arg.prec)
 		: ft_strlen(str);
+	else
+		len = arg.prec != -1 ? ft_min(6, arg.prec) : 6;
 	arg.prec = 0;
 	arg.flag_minus ? 0 : prt_width(0, len, arg);
-	ft_putnstr(str, len);
+	str ? ft_putnstr(str, len) : write(1, "(null)", len);
 	arg.flag_minus ? prt_width(0, len, arg) : 0;
 	return (ft_max(arg.width, len));
 }
@@ -61,10 +59,9 @@ int		ft_printarg_p(t_arg arg, va_list *ap)
 	int					sign;
 
 	nb = va_arg(*ap, unsigned long);
-	arg.flag_hash = '#';
 	str = ft_strlower(ft_itoa_base(nb, 16));
 	len = (*str == '0' && arg.prec == 0) ? 0 : ft_strlen(str);
-	sign = arg.flag_hash && *str != '0'? 2 : 0;
+	sign = 2;
 	if (!arg.flag_minus)
 	{
 		arg.flag_zero ? prt_sign_base(sign) : prt_width(sign, len, arg);
@@ -78,7 +75,7 @@ int		ft_printarg_p(t_arg arg, va_list *ap)
 	return (ft_max(arg.width, ft_max(arg.prec, len) + sign));
 }
 
-int 	ft_printarg_d(t_arg arg, va_list *ap)
+int		ft_printarg_d(t_arg arg, va_list *ap)
 {
 	long long		nb;
 	int				len;

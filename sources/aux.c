@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:09:45 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/31 10:57:43 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 21:57:31 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void		reset_arg(t_arg *arg)
 	arg->conv = 0;
 }
 
-int			error(t_arg *arg, char* copy)
+int			error(t_arg *arg, char *copy)
 {
 	free(arg);
 	free(copy);

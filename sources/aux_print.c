@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 15:05:14 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/31 11:07:50 by ftrujill         ###   ########.fr       */
+/*   Created: 2019/06/01 13:31:24 by ftrujill          #+#    #+#             */
+/*   Updated: 2019/06/01 21:31:03 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,12 @@ void	prt_sign(long long nb, t_arg arg)
 	nb >= 0 && arg.flag_plus ? write(1, "+", 1) : 0;
 }
 
-void	prt_decimal(long double nb, ssize_t prec)
+void	prt_sign_base(int sign)
 {
-	write(1, ".", 1);
-	nb = 10 * (nb - (long long)nb);
-    while (prec > 0)
-    {
-        ft_putnbr((int)nb);
-        nb = 10 * (nb - (long long)nb);
-        prec--;
-    }
-}
-
-void    prt_sign_base(int sign)
-{
-    if (sign == 1)
-        write(1, "0", 1);
-    if (sign == 2)
-        write(1, "0x", 2);
-    if (sign == 6)
-        write(1, "0X", 2);
+	if (sign == 1)
+		write(1, "0", 1);
+	if (sign == 2)
+		write(1, "0x", 2);
+	if (sign == 6)
+		write(1, "0X", 2);
 }

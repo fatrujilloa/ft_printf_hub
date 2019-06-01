@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:22:11 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/31 10:57:48 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 13:53:58 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "printf.h"
 #include "conversions.h"
 
-int			conv_pos(char c)
+int		conv_pos(char c)
 {
 	int i;
 
@@ -49,13 +49,13 @@ int		nb_arg(const char *restrict format, ...)
 	return (i);
 }
 
-int		print_result(char *str, t_arg *arg, va_list *ap)
+int		print_result(char *str, t_arg *arg, va_list *ap, int j)
 {
 	int		i;
-	int		j;
 	int		(*f)(t_arg arg, va_list *ap);
 	int		len;
 
+	str[j] = 0;
 	i = 0;
 	j = 0;
 	len = 0;
@@ -69,7 +69,7 @@ int		print_result(char *str, t_arg *arg, va_list *ap)
 		if (!(str[j++]))
 			break ;
 		f = g_conv_tab[conv_pos(arg[i].conv)].f;
-		len+= f(arg[i++], ap);
+		len += f(arg[i++], ap);
 	}
 	free(str);
 	free(arg);
@@ -97,15 +97,10 @@ int		ft_printf(const char *restrict format, ...)
 			copy[j++] = *format++;
 		copy[j++] = *format;
 		if (!*format)
-			break;
-		else
-		{
-			format++;
-			if (!(get_arg(&(format), &arg[i++])))
-				return (error(arg, copy));
-		}
+			break ;
+		format++;
+		if (!(get_arg(&(format), &arg[i++])))
+			return (error(arg, copy));
 	}
-	copy[j] = 0;
-	//check there is no more arguments.
-	return (print_result(copy, arg, &ap));
+	return (print_result(copy, arg, &ap, j));
 }

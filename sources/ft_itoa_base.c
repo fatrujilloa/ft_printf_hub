@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 13:49:32 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/29 19:00:48 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 13:38:04 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		conversion_size(unsigned long long value, int base)
 	if (value == 0)
 		return (2);
 	size = 1;
-	while(value > 0)
-		{
-			value = value / base;
-			size++;
-		}
+	while (value > 0)
+	{
+		value = value / base;
+		size++;
+	}
 	return (size + 1);
 }
 

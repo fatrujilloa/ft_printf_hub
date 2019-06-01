@@ -6,7 +6,7 @@
 #    By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 13:27:24 by ftrujill          #+#    #+#              #
-#    Updated: 2019/05/31 12:24:29 by ftrujill         ###   ########.fr        #
+#    Updated: 2019/06/01 18:09:44 by ftrujill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,6 +112,8 @@ ft_tolower.c\
 ft_toupper.c\
 
 all: $(NAME) $(SRC) $(OBJ) 
+
+.PHONY : all re clean fclean
 
 $(NAME): $(OBJ_PATH) $(OBJ)
 	@ar rc $(NAME) $(OBJ)

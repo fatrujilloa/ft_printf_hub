@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:00:55 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/05/31 10:57:51 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 21:53:11 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ int		arg_len_mod(const char *restrict *f, t_arg *arg)
 		}
 	}
 	else if (**f == 'L')
+	{
 		arg->len_mod[0] = 'L';
+		(*f)++;
+	}
 	return (1);
 }
 
@@ -110,7 +113,10 @@ char	arg_conv(const char *restrict *f, t_arg *arg)
 		return (0);
 	arg->conv = c;
 	if (arg->prec == -1)
-		arg->prec = (c == 'f' && !arg->flag_hash) ? 6 : arg->prec;
+	{
+		if (c == 'f')
+			arg->prec = 6;
+	}
 	else if (c == 'd' || c == 'i' || c == 'o' || c == 'u' ||
 			c == 'x' || c == 'X')
 		arg->flag_zero = 0;
