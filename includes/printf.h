@@ -6,14 +6,13 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:56:32 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/01 23:47:53 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/01 21:18:20 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
 # include <stdarg.h>
-# include <string.h>
 
 typedef struct	s_arg
 {
@@ -34,10 +33,6 @@ typedef struct	s_conv
 	int		(*f)(t_arg arg, va_list *ap);
 }				t_conv;
 
-/*
-** Printf
-*/
-int		ft_printf(const char *format, ...);
 /*
 ** Print functions
 */
