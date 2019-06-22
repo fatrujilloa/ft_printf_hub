@@ -6,11 +6,10 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:31:24 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/22 12:47:53 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 16:23:35 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 void	prt_width(int sign, size_t len, t_arg arg)
@@ -40,6 +39,13 @@ void	prt_prec(ssize_t n)
 }
 
 void	prt_sign(long long nb, t_arg arg)
+{
+	nb < 0 ? write(1, "-", 1) : 0;
+	nb >= 0 && arg.flag_space && !(arg.flag_plus) ? write(1, " ", 1) : 0;
+	nb >= 0 && arg.flag_plus ? write(1, "+", 1) : 0;
+}
+
+void	prt_sign_float(long double nb, t_arg arg)
 {
 	nb < 0 ? write(1, "-", 1) : 0;
 	nb >= 0 && arg.flag_space && !(arg.flag_plus) ? write(1, " ", 1) : 0;

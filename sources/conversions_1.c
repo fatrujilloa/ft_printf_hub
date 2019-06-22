@@ -6,11 +6,10 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:11:26 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/22 12:48:07 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 16:56:58 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 int		ft_printarg_pcnt(t_arg arg, va_list *ap)

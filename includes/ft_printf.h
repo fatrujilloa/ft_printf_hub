@@ -6,7 +6,7 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:56:32 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/22 12:53:35 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 16:23:51 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int				error(t_arg *arg, char *copy);
 void			prt_width(int sign, size_t len, t_arg arg);
 void			prt_prec(ssize_t n);
 void			prt_sign(long long nb, t_arg arg);
+void			prt_sign_float(long double nb, t_arg arg);
 void			prt_sign_base(int sign);
 
 #endif
