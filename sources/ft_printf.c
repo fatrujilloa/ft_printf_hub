@@ -6,12 +6,11 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:22:11 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/01 13:53:58 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 12:54:55 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 #include "conversions.h"
 
 int		conv_pos(char c)

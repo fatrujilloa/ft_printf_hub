@@ -6,12 +6,12 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 15:00:55 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/01 21:53:11 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 12:47:44 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 
 int		arg_flag(const char *restrict *f, t_arg *arg)
 {

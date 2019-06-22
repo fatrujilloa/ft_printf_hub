@@ -6,12 +6,12 @@
 /*   By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 13:31:24 by ftrujill          #+#    #+#             */
-/*   Updated: 2019/06/01 21:31:03 by ftrujill         ###   ########.fr       */
+/*   Updated: 2019/06/22 12:47:53 by ftrujill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "printf.h"
+#include "ft_printf.h"
 
 void	prt_width(int sign, size_t len, t_arg arg)
 {

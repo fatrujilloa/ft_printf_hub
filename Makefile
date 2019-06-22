@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ftrujill <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ftrujill <ftrujill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 13:27:24 by ftrujill          #+#    #+#              #
-#    Updated: 2019/06/01 18:09:44 by ftrujill         ###   ########.fr        #
+#    Updated: 2019/06/22 12:55:37 by ftrujill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,11 @@ LFT_PATH = ./
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
-INC = $(addprefix -I,$(INC_PATH))
+INC = $(addprefix $(INC_PATH),$(INC_NAME))
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-INC_NAME = libft.h printf.h conversions.h
+INC_NAME = libft.h ft_printf.h conversions.h
 
 SRC_NAME = ft_printf.c get_arg.c aux_print.c aux.c conversions_1.c conversions_2.c conversions_3.c\
 ft_index_rev.c\
@@ -111,7 +111,7 @@ ft_strtrim.c\
 ft_tolower.c\
 ft_toupper.c\
 
-all: $(NAME) $(SRC) $(OBJ) 
+all: $(NAME) $(SRC) $(OBJ) $(INC)
 
 .PHONY : all re clean fclean
 
@@ -123,7 +123,7 @@ $(OBJ_PATH):
 	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CC_FLAGS) $(INC) -o $@ -c $< 
+	@$(CC) $(CC_FLAGS) -I $(INC_PATH) -o $@ -c $< 
 
 clean:
 	@rm -rf $(OBJ)
